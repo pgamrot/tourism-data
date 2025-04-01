@@ -71,4 +71,3 @@ def download_weather_data(dataframe: pd.DataFrame, date_param: str) -> str:
 download_from_gcs('staging-data-td1313', 'regions', 'dim_regions.csv', f"{DOWNLOAD_DIR}/dim_regions.csv")
 df = pd.read_csv(f'{DOWNLOAD_DIR}/dim_regions.csv')
 file = download_weather_data(df, date_parameter)
-upload_to_gcs(file, 'raw-data-td1313', 'weather')
