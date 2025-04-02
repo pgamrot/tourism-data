@@ -64,7 +64,7 @@ def download_weather_data(dataframe: pd.DataFrame, date_param: str) -> str:
 
     df_all = pd.concat(dfs)
     path = f"tmp/weather_data.parquet"
-    df_all.to_parquet(path)
+    df_all.to_parquet(path,coerce_timestamps='us')
     return path
 
 
