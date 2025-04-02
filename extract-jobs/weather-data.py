@@ -63,7 +63,7 @@ def download_weather_data(dataframe: pd.DataFrame, date_param: str) -> str:
         dfs.append(daily_dataframe)
 
     df_all = pd.concat(dfs)
-    path = f"tmp/nuts2_weather_data_{first_day_previous_month.strftime('%Y-%m')}.parquet"
+    path = f"tmp/weather_data.parquet"
     df_all.to_parquet(path)
     return path
 
