@@ -5,7 +5,8 @@ import requests_cache
 import pandas as pd
 from retry_requests import retry
 import datetime
-from helper_functions import download_from_gcs, upload_to_gcs
+from helper_functions import download_from_gcs
+import time
 
 DOWNLOAD_DIR = "./tmp"
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
@@ -71,3 +72,4 @@ def download_weather_data(dataframe: pd.DataFrame, date_param: str) -> str:
 download_from_gcs('staging-data-td1313', 'regions', 'dim_regions.csv', f"{DOWNLOAD_DIR}/dim_regions.csv")
 df = pd.read_csv(f'{DOWNLOAD_DIR}/dim_regions.csv')
 file = download_weather_data(df, date_parameter)
+time.sleep(60)
